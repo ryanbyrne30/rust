@@ -23,9 +23,9 @@ pub fn solve() {
 
   // Solution for problem 1
   let sol_1 = problem_1::solve(&numbers, TARGET_SUM);
-  println!("Solution for problem 1: {}", sol_1);
+  println!("Day 1 - Problem 1: {}", sol_1);
 
   // Solution for problem 2
   let sol_2 = problem_2::solve(&numbers, TARGET_SUM);
-  println!("Solution for problem 2: {}", sol_2);
+  println!("Day 1 - Problem 2: {}", sol_2);
 }
