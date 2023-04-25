@@ -1,8 +1,5 @@
-
 pub fn qsort(v: &mut Vec<i32>) {
-  let low: usize = 0;
-  let high: usize = v.len() - 1;
-  qsort_helper(v, low, high)
+  qsort_helper(v, 0, v.len() - 1)
 }
 
 fn qsort_helper(v: &mut Vec<i32>, low: usize, high: usize) {
@@ -15,17 +12,16 @@ fn qsort_helper(v: &mut Vec<i32>, low: usize, high: usize) {
 
 fn partition(v: &mut Vec<i32>, low: usize, high: usize) -> usize {
   let pivot: i32 = v[high].clone();
+  let mut cursor: usize = low;
   let mut i: usize = low;
-  let mut j: usize = low;
 
-  // values lt pivot are left of values gt pivot
-  while j <= high {
-    let current_value: i32 = v[j].clone();
-    if current_value < pivot {
-      swap(v, i, j);
+  while cursor <= high {
+    let cursor_val = v[cursor].clone();
+    if cursor_val < pivot {
+      swap(v, i, cursor);
       i += 1;
     }
-    j += 1
+    cursor += 1;
   }
 
   swap(v, i, high);
@@ -33,7 +29,7 @@ fn partition(v: &mut Vec<i32>, low: usize, high: usize) -> usize {
 }
 
 fn swap(v: &mut Vec<i32>, i: usize, j: usize) {
-  let temp: i32 = v[i];
+  let temp = v[i];
   v[i] = v[j];
   v[j] = temp;
 }
@@ -41,7 +37,7 @@ fn swap(v: &mut Vec<i32>, i: usize, j: usize) {
 
 #[cfg(test)]
 mod tests {
-  use crate::algs::sort::{partition, qsort};
+    use crate::algs::sorting::qsort::{partition, qsort};
 
 
   #[test]
