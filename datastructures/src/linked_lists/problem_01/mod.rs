@@ -58,11 +58,6 @@ impl<T: Display + Copy> List<T> {
   }
 }
 
-// pub fn find_middle(list: &List) {
-//   let middle: usize = (list.length + 1) / 2;
-//   println!("Middle: {}", middle);
-// }
-
 pub fn create_list_from_array<T: Display + Copy>(values: &Vec<T>, list: &mut List<T>) {
   for value in values {
     list.push(*value);
