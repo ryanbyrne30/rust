@@ -19,3 +19,30 @@ fn helper(s1: &[u8], s2: &[u8], m: usize, n: usize) -> String {
     }
   }
 }
+
+
+#[cfg(test)]
+mod tests {
+  use super::solve;
+
+  #[test]
+  fn shortest_supersequence_works() {
+    let result = solve("ABCBDAB", "BDCABA");
+    let solutions = [
+      "BDAB",
+      "BCAB",
+      "BCBA"
+    ];
+
+    let mut is_valid = false;
+
+    for solution in solutions {
+      if result == solution {
+        is_valid = true;
+        break;
+      }
+    }
+
+    assert!(is_valid, "Received: {}", result);
+  }
+}
